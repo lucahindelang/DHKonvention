@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DH Transformationen</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <aside class="panel controls-panel" aria-label="DH Parameter Eingabe">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Vorwaertskinematik</p>
+              <h1>DH Transformationen</h1>
+            </div>
+            <button id="resetExampleBtn" class="icon-button" type="button" title="Beispiel laden" aria-label="Beispiel laden">
+              <span aria-hidden="true">&#8634;</span>
+            </button>
+          </div>
+
+          <div class="toolbar">
+            <button id="addJointBtn" type="button">+ Gelenk</button>
+            <button id="removeJointBtn" type="button" class="secondary">- Gelenk</button>
+            <label class="select-label">
+              DH
+              <select id="dhMode">
+                <option value="classic">Klassisch</option>
+                <option value="modified">Modifiziert</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Typ</th>
+                  <th>&theta; [deg]</th>
+                  <th>d</th>
+                  <th>a</th>
+                  <th>&alpha; [deg]</th>
+                </tr>
+              </thead>
+              <tbody id="jointTable"></tbody>
+            </table>
+          </div>
+
+          <div class="simulation">
+            <div class="section-title">
+              <h2>Simulation</h2>
+              <button id="playBtn" type="button" class="secondary">Play</button>
+            </div>
+            <div id="sliderList" class="slider-list"></div>
+          </div>
+        </aside>
+
+        <div class="result-column">
+          <section class="viewer-zone" aria-label="Visualisierung">
+            <div id="viewer" class="viewer"></div>
+            <div class="view-controls">
+              <button data-view="iso" type="button">Iso</button>
+              <button data-view="front" type="button">Front</button>
+              <button data-view="top" type="button">Top</button>
+              <button id="fitBtn" type="button">Fit</button>
+            </div>
+          </section>
+
+          <aside class="panel output-panel" aria-label="Berechnungsergebnisse">
+            <div class="panel-header compact">
+              <div>
+                <p class="eyebrow">Ergebnis</p>
+                <h2>Endeffektor</h2>
+              </div>
+              <button id="copyBtn" type="button" class="secondary">Kopieren</button>
+            </div>
+
+            <div class="pose-grid">
+              <div>
+                <span>x</span>
+                <strong id="poseX">0</strong>
+              </div>
+              <div>
+                <span>y</span>
+                <strong id="poseY">0</strong>
+              </div>
+              <div>
+                <span>z</span>
+                <strong id="poseZ">0</strong>
+              </div>
+            </div>
+
+            <div class="output-grid">
+              <div>
+                <h3>Gesamtmatrix T<sub>0,n</sub></h3>
+                <pre id="matrixOutput" class="matrix-output"></pre>
+              </div>
+
+              <div>
+                <h3>Textausgabe</h3>
+                <pre id="reportOutput" class="matrix-output report-output"></pre>
+              </div>
+
+              <div>
+                <h3>Einzelmatrizen</h3>
+                <div id="jointMatrices" class="joint-matrices"></div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
