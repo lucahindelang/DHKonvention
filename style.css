@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   color-scheme: light;
   --bg: #ffffff;
   --panel: #ffffff;
@@ -271,6 +271,47 @@ input[type="range"] {
   max-height: none;
 }
 
+.axis-legend {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.68);
+  color: #ffffff;
+  padding: 7px 9px;
+  font-size: 12px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.axis-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.axis-legend i {
+  display: block;
+  width: 18px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.axis-x {
+  background: #ff3653;
+}
+
+.axis-y {
+  background: #8adb00;
+}
+
+.axis-z {
+  background: #2c8fff;
+}
 .view-controls {
   position: absolute;
   right: 14px;
@@ -429,3 +470,4 @@ input[type="range"] {
     grid-template-columns: 52px 1fr 56px 40px;
   }
 }
+
